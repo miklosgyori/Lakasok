@@ -5,27 +5,14 @@ package model;
  */
 public class Lakas {
 
-    private enum Allapot {
-        FELUJITOTT("felujitott"),
-        JOALLAPOT("jo allapot"),
-        FELUJITANDO("felujitando"),
-        UJEPITESU("uj epitesű");
-
-        private final String ertek;
-
-        Allapot(String ertek) {
-            this.ertek = ertek;
-        }
-    }
-
     private int kerulet;
     private int terulet;
     private int szobaSzama;
     private int emelet;
     private int ar;
-    private Allapot allapot;
+    private String allapot;
 
-    public Lakas(int kerulet, int terulet, int szobaSzama, int emelet, int ar, Allapot allapot) {
+    public Lakas(int kerulet, int terulet, int szobaSzama, int emelet, int ar, String allapot) {
         this.kerulet = kerulet;
         this.terulet = terulet;
         this.szobaSzama = szobaSzama;
@@ -74,11 +61,11 @@ public class Lakas {
         this.ar = ar;
     }
 
-    public Allapot getAllapot() {
+    public String getAllapot() {
         return allapot;
     }
 
-    public void setAllapot(Allapot allapot) {
+    public void setAllapot(String allapot) {
         this.allapot = allapot;
     }
 }
