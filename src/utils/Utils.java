@@ -96,4 +96,34 @@ public class Utils {
         return darabszamok;
     }
 
+    public static int atlagMeret(List<Lakas> lakasLista, int kerulet) {
+        int total = 0;
+        int atlag = 0;
+        int szamlalo = 0;
+
+        if ( !lakasLista.isEmpty() ){
+
+            for (Lakas lakas : lakasLista) {
+
+                if ( kerulet == 0 ) {
+                    total += lakas.getTerulet();
+                } else {
+                    if ( kerulet == lakas.getKerulet() ) {
+                        total += lakas.getTerulet();
+                        szamlalo += 1;
+                    }
+                }
+            }
+
+            if ( kerulet == 0 ){
+                atlag = total / lakasLista.size();
+            } else {
+                atlag = total / szamlalo;
+            }
+
+        } else {
+            System.err.println("Nem tudok atlagmereteket szamolni, mert ures a lista!");
+        }
+        return atlag;
+    }
 }

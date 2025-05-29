@@ -4,8 +4,7 @@ import utils.Utils;
 import java.util.List;
 import java.util.Map;
 
-import static utils.Utils.keruletDarab;
-import static utils.Utils.legdragabb;
+import static utils.Utils.*;
 
 /**
  * Az alkalmazas belepesi pontjat tartalmazo osztaly
@@ -19,6 +18,10 @@ public class App {
         lakasLista = Utils.betolt(PATH_TO_DATAFILE);
     }
 
+    /**
+     * Alkalmazas belepesi pont
+     * @param args a szokasos, ures
+     */
     public static void main(String[] args) {
 
         App lakasok = new App();
@@ -38,6 +41,11 @@ public class App {
             System.out.println( ker + ". kerulet: " + darab + "db. elado ingatlan.");
         }
 
+        //3. feladat
+        System.out.println("\n3. feladat:\nAz atlagos lakasmeret a teljes listaban: " + atlagMeret(lakasLista, 0) + " m2");
 
+        //4. feladat
+        int kerulet = 6;
+        System.out.println("\n4. feladat:\nAz atlagos lakasmeret a " + kerulet + ". keruletben: " + atlagMeret(lakasLista, kerulet)  + " m2");
     }
 }
