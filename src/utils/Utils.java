@@ -10,6 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Utils {
+    /**
+     * adatok beolvasasa a json filebol
+     * @param pathToDataFile az adatfile helye a futtatasi konyvtarbol relativan
+     * @return arraylist, a beolvasott Lakas objketumokkal
+     */
     public static List<Lakas> betolt(String pathToDataFile){
 
         List<Lakas> lakasokBeolvasva = new ArrayList<>();
@@ -24,7 +29,7 @@ public class Utils {
             // "lakasok" tömb
             JSONArray lakasokArray = root.getJSONArray("lakasok");
 
-            // Iterálunk a tömb elemein
+            // Iterálunk a tömb elemein, Lakas objektum letrehozasa, listahoz adas
             for (int i = 0; i < lakasokArray.length(); i++) {
                 JSONObject obj = lakasokArray.getJSONObject(i);
 
@@ -39,15 +44,33 @@ public class Utils {
                 lakasokBeolvasva.add(lakas);
                 System.out.println("Beolvasva a fajlbol: " + lakasokBeolvasva.size() + ". " + lakas);
             }
-
-            //TODO: végén törlendő
-            // Teszt: első lakás kiírása
-            System.out.println("Elso lakas: kerulet " + lakasokBeolvasva.get(0).getKerulet()
-                    + ", ar: " + lakasokBeolvasva.get(0).getAr());
-
         } catch (Exception e) {
             e.printStackTrace();
         }
         return lakasokBeolvasva;
     }
+
+    public static List<Lakas> legdragabb(List<Lakas> lakasLista) {
+
+        List<Lakas> legdragabbLista = new ArrayList<>();
+
+        if ( !lakasLista.isEmpty() ){
+
+            int maxAr = 0;
+            for (Lakas lakas : lakasLista) {
+                int ar = lakas.getAr();
+                if (ar > maxAr) {
+                    legdragabbLista.clear();
+                    legdragabbLista.add(lakas);
+                    maxAr = ar;
+                } else if (ar == maxAr) {
+                    legdragabbLista.add(lakas);
+                }
+            }
+        } else {
+            System.err.println("Nem tudok legdragabb lakast keresni, mert ures a lista!");
+        }
+        return legdragabbLista;
+    }
+
 }
