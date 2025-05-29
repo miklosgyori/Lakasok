@@ -22,16 +22,16 @@ public class Utils {
         List<Lakas> lakasokBeolvasva = new ArrayList<>();
 
         try {
-            // Teljes fájl beolvasása karakterláncként
+            // File beolvasasa karakterlanckent
             String jsonString = new String(Files.readAllBytes(Paths.get(pathToDataFile)));
 
-            // Fő JSON objektum
+            // A teljes JSON objektum
             JSONObject root = new JSONObject(jsonString);
 
-            // "lakasok" tömb
+            // "lakasok" tomb
             JSONArray lakasokArray = root.getJSONArray("lakasok");
 
-            // Iterálunk a tömb elemein, Lakas objektum letrehozasa, listahoz adas
+            // Tomb elemein iteralas, Lakas objektum letrehozasa, listahoz adas
             for (int i = 0; i < lakasokArray.length(); i++) {
                 JSONObject obj = lakasokArray.getJSONObject(i);
 
@@ -52,6 +52,11 @@ public class Utils {
         return lakasokBeolvasva;
     }
 
+    /**
+     * A legdragabb lakas(ok) kivalasztasa, maximumkeresessel
+     * @param lakasLista
+     * @return ArrayList<Lakas>, amelyben a legdragabb lakas(oka)t taroljuk
+     */
     public static List<Lakas> legdragabb(List<Lakas> lakasLista) {
 
         List<Lakas> legdragabbLista = new ArrayList<>();
@@ -75,6 +80,11 @@ public class Utils {
         return legdragabbLista;
     }
 
+    /**
+     * A listan levo lakasok keruletenkenti darabszamanak kiszamitasa
+     * @param lakasLista a lakasokat tartalmazo ArrayList
+     * @return a keruleteket es a darabszamokat tartalmazo TreeMap
+     */
     public static Map<Integer,Integer> keruletDarab(List<Lakas> lakasLista)
     {
         Map<Integer,Integer> darabszamok = new TreeMap<>();
@@ -96,6 +106,12 @@ public class Utils {
         return darabszamok;
     }
 
+    /**
+     * Atlagos lakasmeretet szamol
+     * @param lakasLista a lakasokat tartalmazo ArrayList
+     * @param kerulet a kerulet szama vagy 0; utobbi esetben a teljes listara atlagol
+     * @return
+     */
     public static int atlagMeret(List<Lakas> lakasLista, int kerulet) {
         int total = 0;
         int atlag = 0;
