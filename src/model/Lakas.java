@@ -70,13 +70,12 @@ public class Lakas {
     }
     @Override
     public String toString() {
-        return "Lakas{" +
+        return "Lakas: " +
                 "kerulet = " + kerulet +
                 ", terulet = " + terulet +
                 ", szobaSzama = " + szobaSzama +
                 ", emelet = " + emelet +
                 ", ar = " + ar +
-                ", allapot ='" + allapot + '\'' +
-                '}';
+                ", allapot ='" + allapot + '\'';
     }
 }
