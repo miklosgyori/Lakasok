@@ -1,5 +1,6 @@
 # IntelliJ IDEA project files
 .idea/
+javadoc/
 *.iml
 
 # Compiled class file
