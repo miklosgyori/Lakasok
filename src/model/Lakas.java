@@ -68,4 +68,15 @@ public class Lakas {
     public void setAllapot(String allapot) {
         this.allapot = allapot;
     }
+    @Override
+    public String toString() {
+        return "Lakas{" +
+                "kerulet = " + kerulet +
+                ", terulet = " + terulet +
+                ", szobaSzama = " + szobaSzama +
+                ", emelet = " + emelet +
+                ", ar = " + ar +
+                ", allapot ='" + allapot + '\'' +
+                '}';
+    }
 }
