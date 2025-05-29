@@ -55,7 +55,7 @@ public class Utils {
     /**
      * A legdragabb lakas(ok) kivalasztasa, maximumkeresessel
      * @param lakasLista
-     * @return ArrayList<Lakas>, amelyben a legdragabb lakas(oka)t taroljuk
+     * @return ArrayList, amelyben a legdragabb lakas(oka)t taroljuk
      */
     public static List<Lakas> legdragabb(List<Lakas> lakasLista) {
 
