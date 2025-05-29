@@ -8,6 +8,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class Utils {
     /**
@@ -71,6 +73,27 @@ public class Utils {
             System.err.println("Nem tudok legdragabb lakast keresni, mert ures a lista!");
         }
         return legdragabbLista;
+    }
+
+    public static Map<Integer,Integer> keruletDarab(List<Lakas> lakasLista)
+    {
+        Map<Integer,Integer> darabszamok = new TreeMap<>();
+
+        if ( !lakasLista.isEmpty() ){
+
+            for (Lakas lakas : lakasLista) {
+                int ker = lakas.getKerulet();
+                if (darabszamok.containsKey(ker)) {
+                    int aktualisDarab = darabszamok.get(ker);
+                    darabszamok.put(ker, aktualisDarab + 1);
+                } else {
+                    darabszamok.put(ker, 1);
+                }
+            }
+        } else {
+            System.err.println("Nem tudok keruletenkenti darabszamot szamolni, mert ures a lista!");
+        }
+        return darabszamok;
     }
 
 }
